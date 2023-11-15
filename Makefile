@@ -1,8 +1,8 @@
-all: M0 clean
+all: M0_tests clean
 
 CC = gcc
 CFLAGS = -Wall -Wextra -pedantic -g
-M0: tests/M0/move_tests.c move.o core.o
+M0_tests: tests/M0/move_tests.c move.o core.o
 	$(CC) $(CFLAGS) -o $@  $^
 
 move.o: core/ALU/move.c

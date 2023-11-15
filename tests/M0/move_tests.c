@@ -55,9 +55,10 @@ void initialize_tests(void)
 
 int32_t main(void)
 {
+    int32_t sta;
+    int32_t errors = 0;
     initialize_tests();
     initialize_cores();
-    int32_t sta;
     for (uint8_t i = 0; i < NTESTS; i++)
     {
         printf("%s\t",config[i].name);
@@ -68,10 +69,11 @@ int32_t main(void)
         }
         else
         {
+            errors++;
             printf("NG Return value was %d expected %d\n", sta, config[i].expect);
         }
     }
     free_cores();
 
-    return 0;
+    return errors;
 }

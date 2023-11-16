@@ -23,7 +23,10 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Build tests
-        run: make && cd tests
+        run: make
 
-      - name: Launch suite of tests
-        run : ./M0_tests
+      - name: Launch move tests
+        run : ./move_tests
+
+      - name: Launch logical tests
+        run: ./logical_tests

@@ -19,6 +19,7 @@ uint32_t *X14; /* LR  */
 uint32_t *X15; /* PC  */
 uint32_t *PRIMASK;
 uint32_t *CONTROL;
+uint32_t *APSR;
 
 void initialize_cores(void)
 {
@@ -40,6 +41,7 @@ void initialize_cores(void)
     X15 = calloc(1, sizeof(X15));
     PRIMASK = calloc(1, sizeof(PRIMASK));
     CONTROL = calloc(1, sizeof(CONTROL));
+    APSR = calloc(1, sizeof(APSR));
 }
 
 void free_cores(void)
@@ -62,4 +64,27 @@ void free_cores(void)
     free(X15);
     free(PRIMASK);
     free(CONTROL);
+    free(APSR);
+}
+
+void set_flags(uint32_t *Rn, uint32_t carry, uint32_t overflow)
+{
+    int32_t test = *Rn;
+    *APSR=0;
+    if(test < 0)
+    {
+        *APSR += FLAG_N;
+    }
+    if(test == 0)
+    {
+        *APSR += FLAG_Z;
+    }
+    if(carry != 0)
+    {
+        *APSR += FLAG_C;
+    }
+    if(overflow != 0)
+    {
+        *APSR += FLAG_V;
+    }
 }

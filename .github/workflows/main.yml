@@ -33,3 +33,6 @@ jobs:
 
       - name: Launch shift tests
         run: ./shift_tests
+
+      - name: Launch compare tests
+        run: ./compare_tests

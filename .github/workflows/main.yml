@@ -30,3 +30,6 @@ jobs:
 
       - name: Launch logical tests
         run: ./logical_tests
+
+      - name: Launch shift tests
+        run: ./shift_tests

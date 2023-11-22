@@ -36,3 +36,6 @@ jobs:
 
       - name: Launch compare tests
         run: ./compare_tests
+
+      - name: Launch add tests
+        run: ./add_tests

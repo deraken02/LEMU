@@ -17,8 +17,8 @@ test_config_t config[NTESTS];
 int32_t test_ANDS(void)
 {
     int32_t sta;
-    MOVS(X0, 10);
-    MOVS(X1, 6);
+    *X0=10;
+    *X1=6;
     ANDS(X0, X1, *X0);
     sta = *X0;
     return sta;
@@ -27,8 +27,8 @@ int32_t test_ANDS(void)
 int32_t test_OR(void)
 {
     int32_t sta;
-    MOVS(X0, 10);
-    MOVS(X1, 6);
+    *X0= 10;
+    *X1= 6;
     OR(X0, X1, X0);
     sta = *X0;
     return sta;
@@ -37,8 +37,8 @@ int32_t test_OR(void)
 int32_t test_EORS(void)
 {
     int32_t sta;
-    MOVS(X0, 10);
-    MOVS(X1, 6);
+    *X0= 10;
+    *X1= 6;
     EORS(X0, X1, X0);
     sta = *X0;
     return sta;
@@ -47,7 +47,7 @@ int32_t test_EORS(void)
 int32_t test_MVNS(void)
 {
     int32_t sta;
-    MOVS(X0, 0);
+    *X0= 0;
     MVNS(X0, X0);
     sta = *X0;
     assert(*APSR == FLAG_N);
@@ -57,8 +57,8 @@ int32_t test_MVNS(void)
 int32_t test_TST(void)
 {
     int32_t sta;
-    MOVS(X0, 1);
-    MOVS(X1, 0);
+    *X0= 1;
+    *X1= 0;
     TST(X0, X1);
     sta=*APSR;
     return sta;

@@ -1,7 +1,10 @@
-all: add_tests compare_tests logical_tests move_tests shift_tests clean
+all: substract_tests add_tests compare_tests logical_tests move_tests shift_tests clean
 
 CC = gcc
 CFLAGS = -Wall -Wextra -pedantic -g
+
+substract_tests: tests/M0/substract_tests.c substract.o core.o
+	$(CC) $(CFLAGS) -o $@  $^
 
 add_tests: tests/M0/add_tests.c add.o core.o
 	$(CC) $(CFLAGS) -o $@  $^
@@ -17,6 +20,9 @@ move_tests: tests/M0/move_tests.c move.o core.o
 
 logical_tests: tests/M0/logical_tests.c logical.o move.o core.o
 	$(CC) $(CFLAGS) -o $@  $^
+
+substract.o: core/ALU/substract.c
+	gcc $(CFLAGS) -c $^
 
 add.o: core/ALU/add.c
 	gcc $(CFLAGS) -c $^

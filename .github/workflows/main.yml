@@ -39,3 +39,6 @@ jobs:
 
       - name: Launch add tests
         run: ./add_tests
+
+      - name: Launch substract tests
+        run: ./substract_tests

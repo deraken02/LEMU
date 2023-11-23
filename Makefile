@@ -1,4 +1,4 @@
-all: add_tests compare_tests logical_tests move_tests shift_tests substract_tests clean
+all: multiply_tests add_tests compare_tests logical_tests move_tests shift_tests substract_tests clean
 
 CC = gcc
 CFLAGS = -Wall -Wextra -pedantic -g
